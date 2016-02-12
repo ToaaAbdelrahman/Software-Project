@@ -1,20 +1,15 @@
 Rails.application.routes.draw do
-  get 'page/home'
-
-  get 'page/library'
-
-  get 'page/upload'
+  root 'page#home'
+  get "library" => "page#library", as: :library
+  get "upload" => "page#upload", as: :upload
 
   devise_for :users
   get 'slide/list'
-
   get 'document/create'
-
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'page#home'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
