@@ -1,4 +1,7 @@
 class DocumentController < ApplicationController
-  def create
-  end
+  def show
+
+   @document = Document.find(params[:id])
+end
+ 
 end

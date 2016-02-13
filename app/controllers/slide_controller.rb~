@@ -1,0 +1,5 @@
+class SlideController < ApplicationController
+  def show
+@slide = Slide.find(params[:slideNumber])
+  end
+end

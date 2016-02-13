@@ -14,13 +14,17 @@
 ActiveRecord::Schema.define(version: 20160204190627) do
 
   create_table "documents", force: :cascade do |t|
+    t.string   "docTitle",   null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "slides", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "slideURL",    null: false
+    t.integer  "slideNumber", null: false
+    t.integer  "document_id", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
 end
