@@ -1,13 +1,19 @@
 Rails.application.routes.draw do
-get 'slide/:slideNumber' => "slide#show"
-get 'document/:id' => "document#show"
- # get 'document/list'
+  get 'slide/:slideNumber' => "slide#show"
+  get 'document/:id' => "document#show"
+  # get 'document/list'
+  root 'page#home'
+  get "library" => "page#library", as: :library
+  get "upload" => "page#upload", as: :upload
+
+  devise_for :users
+  get 'slide/list'
+  get 'document/create'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
@@ -43,6 +49,12 @@ get 'document/:id' => "document#show"
   #       get 'recent', on: :collection
   #     end
   #   end
+
+  # Example resource route with concerns:
+  #   concern :toggleable do
+  #     post 'toggle'
+  #   end
+  #   resources :pos
 
   # Example resource route with concerns:
   #   concern :toggleable do

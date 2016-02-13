@@ -3,6 +3,10 @@ class CreateSlides < ActiveRecord::Migration
     create_table :slides do |t|
       t.string :slideURL, null:false
       t.integer :slideNumber , null:false
+<<<<<<< HEAD
+      t.integer :document_id ,null:false
+=======
+>>>>>>> 3b4a60981478cae8fa3e08230d234b1a0cb6955d
       t.timestamps null: false
     end
   end

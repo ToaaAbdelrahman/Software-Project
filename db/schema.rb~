@@ -22,7 +22,10 @@ ActiveRecord::Schema.define(version: 20160212042525) do
   create_table "slides", force: :cascade do |t|
     t.string   "slideURL",    null: false
     t.integer  "slideNumber", null: false
+<<<<<<< HEAD
     t.integer  "document_id", null: false
+=======
+>>>>>>> 3b4a60981478cae8fa3e08230d234b1a0cb6955d
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
