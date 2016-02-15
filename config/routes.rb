@@ -1,14 +1,15 @@
 Rails.application.routes.draw do
+  get 'document/index' , as: :documents
+  get 'document/:id' => "document#show" , as: :document
   get 'slide/:slideNumber' => "slide#show"
-  get 'document/:id' => "document#show"
-  # get 'document/list'
-  root 'page#home'
-  get "library" => "page#library", as: :library
-  get "upload" => "page#upload", as: :upload
 
-  devise_for :users
-  get 'slide/list'
-  get 'document/create'
+  root 'page#home' # tmam
+  get "library" => "page#library", as: :library # tmam
+  get "upload" => "page#upload", as: :upload   # tmam
+
+  devise_for :users    #tmam
+#  get 'slide/list'
+#  get 'document/create'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

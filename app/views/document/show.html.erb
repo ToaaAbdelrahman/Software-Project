@@ -1,0 +1,4 @@
+<h3><%= @document.docTitle %></h3>
+<% @document.slides.each do |slide| %>
+	<%= link_to image_tag(slide.slideURL,height: '32', width: '32' ), "/slide/#{slide.slideNumber}" %>
+<% end %>

@@ -1,5 +1,5 @@
 class PageController < ApplicationController
-  before_action :authenticate_user!, only: [:library, :upload]
+
   def home
   end
 

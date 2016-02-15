@@ -15,7 +15,7 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
     <li class="active"><%= link_to "Home", root_path %></li>
-    <li><%= link_to "Library", library_path %></li>
+    <li><%= link_to "Documents",documents_path %></li>
     <li><%= link_to "Upload", upload_path %></li>
     <% if user_signed_in? %>
     <li>  <%= link_to "Sign out",destroy_user_session_path, method: :delete %></li>
