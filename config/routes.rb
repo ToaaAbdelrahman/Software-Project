@@ -1,11 +1,19 @@
 Rails.application.routes.draw do
+
+get "index" => "lectures#index" , as: :index
+  get "new" => "lectures#new", as: :new
+  get 'lectures/create'
+
+  get 'lectures/destroy'
+  resources :lectures, only: [:index, :new, :create, :destroy]
+
   get 'document/index' , as: :documents
   get 'document/:id' => "document#show" , as: :document
   get 'slide/:slideNumber' => "slide#show"
 
   root 'page#home' # tmam
-  get "library" => "page#library", as: :library # tmam
-  get "upload" => "page#upload", as: :upload   # tmam
+  get "library" => "page#library", as: :library # msh mohem
+  get "upload" => "page#upload", as: :upload   # msh mohem
 
   devise_for :users    #tmam
 #  get 'slide/list'
