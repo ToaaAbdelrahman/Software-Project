@@ -18,7 +18,7 @@
   <tbody>
     <% @lectures.each do |lecture| %>
       <tr>
-        <td><%= lecture.name %></td>
+        <td><%= link_to lecture.name,lecture_path(lecture) %></td>
         <td><%= link_to "Download Lecture", lecture.attachment_url %></td>
         <td><%= button_to "Delete",  lecture, method: :delete, class: "btn btn-danger", confirm: "Are you sure that you wish to delete #{lecture.name}?" %></td>
       </tr>

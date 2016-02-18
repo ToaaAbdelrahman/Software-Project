@@ -1,3 +1,3 @@
 class Document < ActiveRecord::Base
-has_many :slides, dependent: :delete_all
+has_many :lectures, dependent: :delete_all
 end
