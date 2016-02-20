@@ -17,7 +17,7 @@ class LecturesController < ApplicationController
        @count = pdf.count
        for i in 0...@count
        png = pdf[i].save("app/assets/images/#{@id}.#{i}.jpg")
-       object = Image.new(:pic => "images/#{@id}.#{i}.jpg", :lecture_id => "#{@id}" ,
+       object = Image.new(:pic => "#{@id}.#{i}.jpg", :lecture_id => "#{@id}" ,
          :no_Of_Pic => "#{i}")
         object.save
       end

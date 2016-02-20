@@ -1,11 +1,14 @@
 Rails.application.routes.draw do
 
+  
+
 get "index" => "lectures#index" , as: :index
   get 'lectures/new'
   get "new" => "lectures#new", as: :new
   get 'lectures/create'
   get 'lectures/destroy'
   get 'lectures/:id' => "lectures#show" , as: :lecture
+  get 'image/:id' => "image#show"
   resources :lectures, only: [:index, :new, :create, :destroy,:show]
 
 #  get 'document/index' , as: :documents
