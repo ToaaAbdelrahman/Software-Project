@@ -1,0 +1,4 @@
+<h1>Slide show</h1>
+<%= image_tag(@slide.slideURL) %> <br>
+commentable = SLide.find(1)
+comments = commentable.comments.recent.limit(10).all

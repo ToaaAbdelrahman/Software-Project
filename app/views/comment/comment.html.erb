@@ -1,0 +1,29 @@
+<li id="comment-<%= comment.id %>">
+<div class="comment">
+  <div class="thumbnail">
+    <%= image_tag(comment.owner.try(:image_url), class: 'avatar', alt: '') %>
+  </div>
+  <div class="comment-block">
+    <div class="comment-arrow"></div>
+    <span class="comment-by">
+      <% if commentator_current_user == comment.owner %><%= link_to "×", [commentator, comment], :method => :delete, :remote => true, :confirm => "Are you sure you want to remove this comment?", :disable_with => "×", :class => 'close' %><% end %>
+      <strong><%= comment.owner.try(:name) %></strong>
+      <% unless local_assigns[:nested_replies] === false %>
+        <span class="pull-right reply-button">
+          <i class="icon-reply"></i> 
+          <%= link_to "Reply", [commentator, :reply, comment], remote: true, class: 'comment-reply' %>
+          &nbsp;
+        </span>
+      <% end %>
+    </span>
+    <p><%= markdown(comment.body) %></p>
+    <span class="date pull-right"><%= time_ago_in_words(comment.created_at) %> ago</span>
+  </div>
+</div>
+<% unless local_assigns[:nested_replies] === false %>
+<ul class="comments reply replies">
+  <%- comment.replies.each do |reply| %><%= render reply %><%- end %>
+</ul>
+<% end %>
+<div class="reply-form"></div>
+</li>

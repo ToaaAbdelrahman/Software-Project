@@ -1,0 +1,16 @@
+<%
+comment = local_assigns[:comment]
+reply = comment && comment.slideNumber
+%>
+<div class="post-block post-leave-comment">
+  <% unless local_assigns[:prompt] === false %><h5><%= local_assigns[:prompt] || "Leave a Comment" %></h3><% end %>
+<%= form_for([commentator, comment || Commentator::Comment.new(commentable: commentable)], remote: true, html: { class: 'comment-form', data: { append: reply ? "#comment-#{comment.slideNumber} > .replies" : "#comments-#{slugify(commentable.to_s)}" } }) do |f| %>
+  <%= f.text_area :body, { rows: 5, style: "width:99%" } %>
+  <%= f.hidden_field :slideNumber %>
+  <%= f.hidden_field :commentable_type %>
+  <%= f.hidden_field  :commentable_id %>
+  <div class="btn-toolbar">
+    <%= f.submit local_assigns[:button_text] || ("Post #{reply ? 'Reply' : 'Comment'}"), class: 'btn btn-primary btn-large' %>
+  </div>
+<% end %>
+</div>

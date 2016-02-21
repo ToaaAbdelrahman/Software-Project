@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+gem 'bundler-commentator'
 gem 'carrierwave', '~> 0.9'
 gem 'devise'
 gem 'grim', '~> 1.2'
